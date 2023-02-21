@@ -4,6 +4,7 @@ const app = express();
 const cookiParser = require('cookie-parser');
 const cloudinary = require("cloudinary")
 const cors = require("cors")
+const PORT = process.env.PORT || 6020
 
 
 
@@ -34,5 +35,5 @@ cloudinary.config({
 
 
 app.listen(process.env.PORT, ()=>{
-    console.log(`App listen on port ${process.env.PORT}`);
+    console.log(`App listen on port ${PORT}`);
 })
