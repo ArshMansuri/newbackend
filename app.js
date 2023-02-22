@@ -12,13 +12,17 @@ const PORT = process.env.PORT || 6020
 
 const {connectDataBase} = require('./db/conn');
 connectDataBase();
+app.use(cors(corsOptions))
+const corsOptions = {
+    origin: true, //included origin as true
+    credentials: true, //included credentials as true
+};
 app.use(cookiParser());
 
 //--------------- middleware--------------
 app.use(express.json({limit: "50mb"}));
 app.use(express.urlencoded({extended: true}));
 
-app.use(cors())
 
 //---------------import router ----------
 const user = require('./routes/user');
